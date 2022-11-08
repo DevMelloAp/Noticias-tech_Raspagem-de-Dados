@@ -35,9 +35,11 @@ def scrape_next_page_link(html_content):
 
     next = selector.css(".next.page-numbers::attr(href)").get()
 
-    if not next: return None
+    if not next:
+        return None
 
-    else: return next
+    else:
+        return next
 
 
 # Requisito 4
