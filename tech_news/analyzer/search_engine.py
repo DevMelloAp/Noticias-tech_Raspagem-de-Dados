@@ -32,9 +32,21 @@ def search_by_date(date):
 
 # Requisito 8
 def search_by_tag(tag):
-    """Seu código deve vir aqui"""
+    lista = []
+    news = search_news({"tags": {"$regex": re.compile(tag, re.IGNORECASE)}})
+
+    for new in news:
+        lista.append((new["title"], new["url"]))
+    return lista
 
 
 # Requisito 9
 def search_by_category(category):
-    """Seu código deve vir aqui"""
+    lista = []
+    news = search_news(
+        {"category": {"$regex": re.compile(category, re.IGNORECASE)}}
+    )
+
+    for new in news:
+        lista.append((new["title"], new["url"]))
+    return lista
